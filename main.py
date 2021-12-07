@@ -4,6 +4,7 @@ reads=['GACC','GCGC','TACC','GGCT','GCTT','TTAC']
 file1 = open('sq.txt', 'r')
 Lines = file1.readlines()
 d={}
+path=[]
 count = 0
 # Strips the newline character
 L=""
@@ -14,7 +15,7 @@ for line in Lines:
    Line = line[0: start:] + line[stop + 1::]
    d[(Line[0:len(Line)-6] , Line[4:len(Line)-2])]=(Line[1:len(Line)-5],Line[5:len(Line)-1])
 print("D", d)
-def check_function(key_check):
+def check_start_point(key_check):
     status = False
     for key in d:
         if d[key] == key_check:
@@ -23,4 +24,8 @@ def check_function(key_check):
     return  status
 for key in d:
         print(key,":", d[key])
-        print(check_function(key))
+        print(path)
+        if not check_function(key):
+            path.append(key)
+            path.append(d[key])
+        print(path)
