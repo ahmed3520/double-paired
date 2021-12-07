@@ -25,7 +25,13 @@ def check_start_point(key_check):
 for key in d:
         print(key,":", d[key])
         print(path)
-        if not check_function(key):
+        if not check_start_point(key):
             path.append(key)
             path.append(d[key])
         print(path)
+
+def check_path(value):
+    for key in d:
+       if value == key:
+           path.append(key)
+           path.append(d[key])
